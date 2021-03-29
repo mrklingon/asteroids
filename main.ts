@@ -31,7 +31,7 @@ basic.forever(function () {
         fuel = 0.5
     }
     if (0.5 < fuel) {
-        music.ringTone(131)
+        music.playTone(131, music.beat(BeatFraction.Eighth))
     }
     DujwIj.ifOnEdgeBounce()
     basic.pause(100)
