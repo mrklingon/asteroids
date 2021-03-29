@@ -12,8 +12,8 @@ basic.forever(function () {
     DujwIj.move(fuel)
     fuel += -0.5
     if (fuel < 0) {
-        fuel = 0
+        fuel = 0.5
     }
     DujwIj.ifOnEdgeBounce()
-    basic.pause(200)
+    basic.pause(100)
 })
