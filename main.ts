@@ -18,6 +18,7 @@ input.onButtonPressed(Button.B, function () {
     DujwIj.turn(Direction.Right, 45)
 })
 let Asteroid: game.LedSprite = null
+let Asteroid2: game.LedSprite = null
 let Missile: game.LedSprite = null
 let fuel = 0
 let DujwIj: game.LedSprite = null
@@ -35,6 +36,32 @@ basic.forever(function () {
     }
     DujwIj.ifOnEdgeBounce()
     basic.pause(100)
+})
+basic.forever(function () {
+    basic.pause(500 * randint(3, 7))
+    if (true) {
+        Asteroid2 = game.createSprite(randint(0, 4), randint(0, 4))
+        for (let index = 0; index < randint(0, 10); index++) {
+            DujwIj.turn(Direction.Right, 45)
+        }
+        for (let index = 0; index < 13; index++) {
+            Asteroid2.move(1)
+            basic.pause(500)
+            if (Asteroid2.isTouchingEdge()) {
+                Asteroid2.delete()
+            }
+            if (Asteroid2.isTouching(Missile)) {
+                Asteroid2.delete()
+            }
+            if (Asteroid2.isTouching(DujwIj)) {
+                game.removeLife(1)
+                DujwIj.delete()
+                DujwIj.delete()
+                DujwIj = game.createSprite(2, 2)
+            }
+        }
+        Asteroid2.delete()
+    }
 })
 basic.forever(function () {
     basic.pause(500 * randint(3, 7))
