@@ -44,16 +44,19 @@ basic.forever(function () {
             Asteroid.turn(Direction.Right, 45)
         }
         for (let index = 0; index < 13; index++) {
+            Asteroid.move(1)
+            basic.pause(500)
+            if (Asteroid.isTouchingEdge()) {
+                Asteroid.delete()
+            }
+            if (Asteroid.isTouching(Missile)) {
+                Asteroid.delete()
+            }
             if (Asteroid.isTouching(DujwIj)) {
                 game.removeLife(1)
                 Asteroid.delete()
                 DujwIj.delete()
                 DujwIj = game.createSprite(2, 2)
-            }
-            Asteroid.move(1)
-            basic.pause(500)
-            if (Asteroid.isTouchingEdge()) {
-                Asteroid.delete()
             }
         }
         Asteroid.delete()
