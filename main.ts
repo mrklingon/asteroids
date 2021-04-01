@@ -3,15 +3,12 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     Missile = game.createSprite(DujwIj.get(LedSpriteProperty.X), DujwIj.get(LedSpriteProperty.Y))
-    music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
     Missile.set(LedSpriteProperty.Direction, DujwIj.get(LedSpriteProperty.Direction))
     for (let index = 0; index < 6; index++) {
         Missile.move(1)
+        music.playTone(262, music.beat(BeatFraction.Eighth))
         basic.pause(250)
         Missile.ifOnEdgeBounce()
-        if (Missile.isTouchingEdge()) {
-            Missile.delete()
-        }
     }
     Missile.delete()
 })
