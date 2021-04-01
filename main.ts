@@ -3,6 +3,7 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     Missile = game.createSprite(DujwIj.get(LedSpriteProperty.X), DujwIj.get(LedSpriteProperty.Y))
+    music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
     Missile.set(LedSpriteProperty.Direction, DujwIj.get(LedSpriteProperty.Direction))
     for (let index = 0; index < 6; index++) {
         Missile.move(1)
@@ -52,10 +53,12 @@ basic.forever(function () {
             }
             if (Asteroid2.isTouching(Missile)) {
                 Asteroid2.delete()
+                game.addScore(1000)
             }
             if (Asteroid2.isTouching(DujwIj)) {
                 game.removeLife(1)
                 DujwIj.delete()
+                game.addScore(100)
                 DujwIj.delete()
                 DujwIj = game.createSprite(2, 2)
             }
@@ -78,11 +81,13 @@ basic.forever(function () {
             }
             if (Asteroid.isTouching(Missile)) {
                 Asteroid.delete()
+                game.addScore(1000)
             }
             if (Asteroid.isTouching(DujwIj)) {
                 game.removeLife(1)
                 Asteroid.delete()
                 DujwIj.delete()
+                game.addScore(100)
                 DujwIj = game.createSprite(2, 2)
             }
         }
