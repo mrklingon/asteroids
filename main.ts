@@ -20,6 +20,21 @@ let Asteroid2: game.LedSprite = null
 let Missile: game.LedSprite = null
 let fuel = 0
 let DujwIj: game.LedSprite = null
+let Arrow = images.createBigImage(`
+    # . . . . . . . . .
+    # # . . . . . . # #
+    . . . . . # . # # .
+    . # . . . . . . # #
+    . # # . . . . . . .
+    `)
+Arrow.scrollImage(1, 200)
+images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    `).scrollImage(1, 200)
 DujwIj = game.createSprite(2, 2)
 fuel = 0
 game.setLife(3)
